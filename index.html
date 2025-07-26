@@ -127,106 +127,15 @@
             object-fit: cover;
             margin: 0 auto 2.5rem;
             display: block;
-            border: none;
+            border: 2px solid var(--coffee-brown);
             transition: all 0.4s ease;
             position: relative;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .profile-image::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border-radius: 50%;
-            background: 
-                /* Main coffee ring - circular with irregular edges */
-                conic-gradient(
-                    from 0deg,
-                    transparent 0deg,
-                    var(--coffee-brown) 8deg,
-                    var(--coffee-brown) 15deg,
-                    transparent 18deg,
-                    transparent 25deg,
-                    var(--coffee-brown) 30deg,
-                    var(--coffee-brown) 42deg,
-                    transparent 45deg,
-                    transparent 55deg,
-                    var(--coffee-brown) 60deg,
-                    var(--coffee-brown) 70deg,
-                    transparent 73deg,
-                    transparent 85deg,
-                    var(--coffee-brown) 90deg,
-                    var(--coffee-brown) 105deg,
-                    transparent 108deg,
-                    transparent 120deg,
-                    var(--coffee-brown) 125deg,
-                    var(--coffee-brown) 140deg,
-                    transparent 143deg,
-                    transparent 155deg,
-                    var(--coffee-brown) 160deg,
-                    var(--coffee-brown) 175deg,
-                    transparent 178deg,
-                    transparent 190deg,
-                    var(--coffee-brown) 195deg,
-                    var(--coffee-brown) 210deg,
-                    transparent 213deg,
-                    transparent 225deg,
-                    var(--coffee-brown) 230deg,
-                    var(--coffee-brown) 245deg,
-                    transparent 248deg,
-                    transparent 260deg,
-                    var(--coffee-brown) 265deg,
-                    var(--coffee-brown) 280deg,
-                    transparent 283deg,
-                    transparent 295deg,
-                    var(--coffee-brown) 300deg,
-                    var(--coffee-brown) 315deg,
-                    transparent 318deg,
-                    transparent 330deg,
-                    var(--coffee-brown) 335deg,
-                    var(--coffee-brown) 350deg,
-                    transparent 353deg,
-                    transparent 360deg
-                ),
-                /* Inner mask to create ring effect */
-                radial-gradient(circle, transparent 85%, var(--coffee-brown) 86%, var(--coffee-brown) 100%);
-            mask: radial-gradient(circle, transparent 75%, black 76%, black 90%, transparent 91%);
-            z-index: -1;
-            opacity: 0.8;
-        }
-
-        .profile-image::after {
-            content: '';
-            position: absolute;
-            /* Small coffee drips */
-            top: -25px;
-            left: 60px;
-            width: 8px;
-            height: 15px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            background: var(--coffee-brown);
-            opacity: 0.6;
-            z-index: -1;
-            box-shadow: 
-                -80px 30px 0 -2px var(--coffee-brown),
-                40px 90px 0 -3px var(--coffee-brown),
-                -60px -10px 0 -1px var(--coffee-brown);
-        }
-
         .profile-image:hover {
             transform: scale(1.05) rotate(2deg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-        }
-
-        .profile-image:hover::before {
-            opacity: 0.9;
-        }
-
-        .profile-image:hover::after {
-            opacity: 0.8;
         }
 
         .hero h1 {
@@ -239,18 +148,19 @@
         }
 
         .name-divider {
-            width: 200px;
+            width: 800px;
             height: 2px;
-            background: var(--medium-brown);
+            background: linear-gradient(135deg, #c8956d 0%, #b8885a 100%);
             margin: 0 auto 3rem;
             border-radius: 1px;
+            margin-top: 1rem;
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-light) 100%);
-            color: var(--text-dark);
+            background: linear-gradient(135deg, #c8956d 0%, #e4c5a0 100%);
+            color: white;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 500;
@@ -258,7 +168,7 @@
             font-size: 1rem;
             letter-spacing: 1px;
             text-transform: lowercase;
-            border: 2px solid var(--light-blue);
+            border: 2px solid #c8956d;
             position: relative;
             overflow: hidden;
         }
@@ -320,7 +230,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(107, 182, 214, 0.4);
+            box-shadow: 0 12px 30px rgba(200, 149, 109, 0.4);
         }
 
         /* Sections */
@@ -367,7 +277,7 @@
         .about-text {
             font-size: 1.25rem;
             line-height: 1.8;
-            color: var(--text-light);
+            color: #000000;
             text-align: justify;
             hyphens: auto;
         }
@@ -400,12 +310,12 @@
         }
 
         .column-item {
-            background: var(--cream);
+            background: #f9f7f3;
             padding: 3rem 2rem;
             border-radius: 20px;
             text-align: center;
             transition: all 0.4s ease;
-            border: 1px solid var(--border-color);
+            border: 1px solid #eae6e0;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -475,7 +385,9 @@
         }
 
         .column-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--medium-blue);
             text-decoration: none;
             font-weight: 500;
@@ -483,6 +395,7 @@
             position: relative;
             font-size: 1.05rem;
             letter-spacing: 0.5px;
+            margin-bottom: 1rem;
         }
 
         .column-link::after {
@@ -502,6 +415,37 @@
 
         .column-link:hover {
             color: var(--light-blue);
+        }
+
+        .column-link svg {
+            width: 18px;
+            height: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .column-link:hover svg {
+            transform: scale(1.1);
+        }
+
+        .column-title-link {
+            text-decoration: none;
+            margin-bottom: 0;
+        }
+
+        .column-title-link .column-title {
+            margin-bottom: 0;
+            transition: all 0.3s ease;
+        }
+
+        .column-title-link:hover .column-title {
+            color: var(--light-blue);
+        }
+
+        .cv-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
         }
 
         /* Footer */
@@ -647,7 +591,7 @@
             }
 
             .name-divider {
-                width: 150px;
+                width: 600px;
             }
         }
 
@@ -708,19 +652,34 @@
                     <div class="column-item fade-in">
                         <div class="column-icon research-icon"></div>
                         <h3 class="column-title">Publications</h3>
-                        <a href="https://www.researchgate.net/profile/Mariel-Gonzales" class="column-link" target="_blank" rel="noopener noreferrer">My ResearchGate Link</a>
+                        <a href="https://www.researchgate.net/profile/Mariel-Gonzales" class="column-link" target="_blank" rel="noopener noreferrer">My ResearchGate</a>
                     </div>
                     <div class="column-item fade-in">
                         <div class="column-icon cv-icon"></div>
-                        <h3 class="column-title">My CV</h3>
-                        <a href="./CV.pdf" class="column-link" target="_blank" rel="noopener noreferrer">View my CV</a>
-                        <br><br>
-                        <a href="./CV.pdf" class="column-link" download="Mariel_Gonzales_CV.pdf">Download my CV</a>
+                        <h3 class="column-title">Curriculum Vitae</h3>
+                        <div class="cv-links">
+                            <a href="./CV.pdf" class="column-link" target="_blank" rel="noopener noreferrer">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                View
+                            </a>
+                            <a href="./CV.pdf" class="column-link" download="Mariel_Gonzales_CV.pdf">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Download
+                            </a>
+                        </div>
                     </div>
                     <div class="column-item fade-in">
                         <div class="column-icon baking-icon"></div>
-                        <h3 class="column-title">My Baking Blog</h3>
-                        <a href="./baking-blog.html" class="column-link">Visit My Blog</a>
+                        <a href="./baking-blog.html" class="column-link column-title-link">
+                            <h3 class="column-title">Visit My Baking Blog</h3>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -746,7 +705,7 @@
                         </svg>
                     </a>
                 </div>
-                <p style="margin-top: 2.5rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; position: relative; z-index: 2;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
+                <p style="margin-top: 2.5rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; position: relative; z-index: 2;"></p>
             </div>
         </div>
     </footer>
@@ -774,27 +733,8 @@
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = 'none';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
             }
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
         });
     </script>
 </body>
