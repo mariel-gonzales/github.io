@@ -64,7 +64,7 @@
 
         nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
             padding: 1rem 2rem;
         }
@@ -136,24 +136,64 @@
         .profile-image::before {
             content: '';
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
             border-radius: 50%;
             background: 
-                /* Main ring - thick and irregular */
-                radial-gradient(ellipse at 20% 30%, transparent 45%, var(--coffee-brown) 46%, var(--coffee-brown) 52%, transparent 53%),
-                radial-gradient(ellipse at 80% 20%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
-                radial-gradient(ellipse at 70% 80%, transparent 46%, var(--coffee-brown) 47%, var(--coffee-brown) 53%, transparent 54%),
-                radial-gradient(ellipse at 30% 70%, transparent 48%, var(--coffee-brown) 49%, var(--coffee-brown) 55%, transparent 56%),
-                radial-gradient(ellipse at 90% 60%, transparent 45%, var(--coffee-brown) 46%, var(--coffee-brown) 52%, transparent 53%),
-                radial-gradient(ellipse at 10% 90%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
-                /* Connecting the gaps */
-                radial-gradient(ellipse at 50% 10%, transparent 49%, var(--coffee-brown) 50%, var(--coffee-brown) 56%, transparent 57%),
-                radial-gradient(ellipse at 5% 50%, transparent 48%, var(--coffee-brown) 49%, var(--coffee-brown) 55%, transparent 56%),
-                radial-gradient(ellipse at 50% 90%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
-                radial-gradient(ellipse at 95% 40%, transparent 46%, var(--coffee-brown) 47%, var(--coffee-brown) 53%, transparent 54%);
+                /* Main coffee ring - circular with irregular edges */
+                conic-gradient(
+                    from 0deg,
+                    transparent 0deg,
+                    var(--coffee-brown) 8deg,
+                    var(--coffee-brown) 15deg,
+                    transparent 18deg,
+                    transparent 25deg,
+                    var(--coffee-brown) 30deg,
+                    var(--coffee-brown) 42deg,
+                    transparent 45deg,
+                    transparent 55deg,
+                    var(--coffee-brown) 60deg,
+                    var(--coffee-brown) 70deg,
+                    transparent 73deg,
+                    transparent 85deg,
+                    var(--coffee-brown) 90deg,
+                    var(--coffee-brown) 105deg,
+                    transparent 108deg,
+                    transparent 120deg,
+                    var(--coffee-brown) 125deg,
+                    var(--coffee-brown) 140deg,
+                    transparent 143deg,
+                    transparent 155deg,
+                    var(--coffee-brown) 160deg,
+                    var(--coffee-brown) 175deg,
+                    transparent 178deg,
+                    transparent 190deg,
+                    var(--coffee-brown) 195deg,
+                    var(--coffee-brown) 210deg,
+                    transparent 213deg,
+                    transparent 225deg,
+                    var(--coffee-brown) 230deg,
+                    var(--coffee-brown) 245deg,
+                    transparent 248deg,
+                    transparent 260deg,
+                    var(--coffee-brown) 265deg,
+                    var(--coffee-brown) 280deg,
+                    transparent 283deg,
+                    transparent 295deg,
+                    var(--coffee-brown) 300deg,
+                    var(--coffee-brown) 315deg,
+                    transparent 318deg,
+                    transparent 330deg,
+                    var(--coffee-brown) 335deg,
+                    var(--coffee-brown) 350deg,
+                    transparent 353deg,
+                    transparent 360deg
+                ),
+                /* Inner mask to create ring effect */
+                radial-gradient(circle, transparent 85%, var(--coffee-brown) 86%, var(--coffee-brown) 100%);
+            mask: radial-gradient(circle, transparent 75%, black 76%, black 90%, transparent 91%);
             z-index: -1;
             opacity: 0.8;
         }
@@ -161,15 +201,19 @@
         .profile-image::after {
             content: '';
             position: absolute;
-            /* Small drip outside the main ring */
-            top: -35px;
-            left: 50px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+            /* Small coffee drips */
+            top: -25px;
+            left: 60px;
+            width: 8px;
+            height: 15px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             background: var(--coffee-brown);
-            opacity: 0.7;
+            opacity: 0.6;
             z-index: -1;
+            box-shadow: 
+                -80px 30px 0 -2px var(--coffee-brown),
+                40px 90px 0 -3px var(--coffee-brown),
+                -60px -10px 0 -1px var(--coffee-brown);
         }
 
         .profile-image:hover {
@@ -629,7 +673,6 @@
 <body>
     <header>
         <nav>
-            <div class="logo">Mariel Gonzales</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#sections">Work</a></li>
