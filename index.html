@@ -341,17 +341,17 @@
         .column-item::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(93, 44, 22, 0.05), transparent);
-            transition: transform 0.6s;
-            transform: rotate(-45deg);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(93, 44, 22, 0.05);
+            transition: all 0.6s ease;
+            opacity: 0;
         }
 
         .column-item:hover::before {
-            transform: rotate(-45deg) translate(50%, 50%);
+            opacity: 1;
         }
 
         /* Publications section - floating music notes */
@@ -413,25 +413,26 @@
             background: linear-gradient(135deg, transparent 0%, rgba(93, 44, 22, 0.03) 40%, rgba(93, 44, 22, 0.08) 100%);
         }
 
-        /* Baking section - steam effect */
+        /* Baking section - flour dust/sparkle effect */
         .column-item:nth-child(3)::after {
-            content: '';
+            content: '✨ ⭐ ✦ ✧ ✨ ⭐ ✦ ✧ ✨ ⭐ ✦ ✧';
             position: absolute;
-            bottom: 60%;
-            left: 50%;
-            width: 4px;
-            height: 40px;
-            background: linear-gradient(to top, 
-                rgba(255, 255, 255, 0.8) 0%, 
-                rgba(255, 255, 255, 0.6) 30%, 
-                rgba(255, 255, 255, 0.3) 60%, 
-                transparent 100%);
-            border-radius: 50px;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 16px;
+            color: rgba(255, 215, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
             opacity: 0;
             transition: opacity 0.5s ease;
+            pointer-events: none;
             z-index: 1;
-            animation: steam 2s infinite ease-in-out;
+            animation: flourDust 4s infinite ease-in-out;
         }
 
         .column-item:nth-child(3):hover::after {
@@ -439,24 +440,32 @@
         }
 
         .column-item:nth-child(3)::before {
-            background: radial-gradient(circle at center bottom, 
-                rgba(93, 44, 22, 0.08) 0%, 
-                rgba(93, 44, 22, 0.04) 30%, 
-                transparent 60%);
+            background: radial-gradient(circle at center, 
+                rgba(255, 248, 220, 0.4) 0%, 
+                rgba(255, 228, 196, 0.2) 40%, 
+                rgba(222, 184, 135, 0.1) 100%);
         }
 
-        @keyframes steam {
+        @keyframes flourDust {
             0% { 
-                transform: translateX(-50%) translateY(0px) scale(1);
+                transform: scale(0.8) rotate(0deg);
+                opacity: 0.4;
+            }
+            25% { 
+                transform: scale(1.1) rotate(5deg);
                 opacity: 0.8;
             }
             50% { 
-                transform: translateX(-45%) translateY(-10px) scale(1.2);
-                opacity: 0.5;
+                transform: scale(0.9) rotate(-3deg);
+                opacity: 0.6;
+            }
+            75% { 
+                transform: scale(1.05) rotate(3deg);
+                opacity: 0.9;
             }
             100% { 
-                transform: translateX(-55%) translateY(-20px) scale(0.8);
-                opacity: 0.2;
+                transform: scale(0.8) rotate(0deg);
+                opacity: 0.4;
             }
         }
 
