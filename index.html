@@ -32,6 +32,7 @@
             --border-color: #e5e7eb;
             --hover-bg: #f9fafb;
             --cream: #ffffff;
+            --parchment: #fefdf9;
         }
 
         body {
@@ -154,26 +155,27 @@
 
         .name-divider {
             width: 600px;
-            height: 2px;
-            background: linear-gradient(135deg, #c8956d 0%, #b8885a 100%);
+            height: 3px;
+            background: linear-gradient(135deg, #d4c2a0 0%, #c9b693 100%);
             margin: 0 auto 3rem;
-            border-radius: 1px;
+            border-radius: 0;
             margin-top: 1rem;
+            clip-path: polygon(0 0, 100% 0, 100% 33%, 0 100%);
         }
 
         .cta-button {
             display: inline-block;
             padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #c8956d 0%, #e4c5a0 100%);
-            color: white;
+            background: linear-gradient(135deg, #f5f2e8 0%, #ede7d9 100%);
+            color: #5d4037;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 0;
             font-weight: 500;
             transition: all 0.3s ease;
             font-size: 1rem;
             letter-spacing: 1px;
             text-transform: lowercase;
-            border: 2px solid #c8956d;
+            border: 2px solid #e8dcc0;
             position: relative;
             overflow: hidden;
         }
@@ -235,7 +237,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(200, 149, 109, 0.4);
+            box-shadow: 0 12px 30px rgba(232, 220, 192, 0.4);
         }
 
         /* Sections */
@@ -321,12 +323,16 @@
         }
 
         .column-item {
-            background: #f9f7f3;
+            background: var(--parchment);
             padding: 3rem 2rem;
             border-radius: 0;
             text-align: center;
             transition: all 0.4s ease;
-            border: 1px solid #eae6e0;
+            border: 4px solid #f4f0e8;
+            border-top-width: 6px;
+            border-bottom-width: 2px;
+            border-left-width: 5px;
+            border-right-width: 3px;
             position: relative;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
@@ -399,7 +405,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: #4a9bb3;
+            color: #6ba8b0;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -416,7 +422,7 @@
             height: 2px;
             bottom: -3px;
             left: 0;
-            background: linear-gradient(90deg, #4a9bb3, #6bb6d6);
+            background: linear-gradient(90deg, #6ba8b0, #5a9299);
             transition: width 0.3s ease;
         }
 
@@ -425,7 +431,26 @@
         }
 
         .column-link:hover {
-            color: #6bb6d6;
+            color: #5a9299;
+        }
+
+        .column-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: linear-gradient(90deg, #8bc3c9, #7aafb5);
+            transition: width 0.3s ease;
+        }
+
+        .column-link:hover::after {
+            width: 100%;
+        }
+
+        .column-link:hover {
+            color: #7aafb5;
         }
 
         .column-link svg {
@@ -441,16 +466,32 @@
         .column-title-link {
             text-decoration: none;
             margin-bottom: 0;
+            position: relative;
+        }
+
+        .column-title-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: linear-gradient(90deg, #6ba8b0, #5a9299);
+            transition: width 0.3s ease;
+        }
+
+        .column-title-link:hover::after {
+            width: 100%;
         }
 
         .column-title-link .column-title {
             margin-bottom: 0;
             transition: all 0.3s ease;
-            color: #4a9bb3;
+            color: #6ba8b0;
         }
 
         .column-title-link:hover .column-title {
-            color: #6bb6d6;
+            color: #5a9299;
         }
 
         .cv-links {
@@ -464,7 +505,7 @@
         footer {
             padding: 5rem 0;
             text-align: center;
-            background: linear-gradient(135deg, #d2b48c 0%, #c8956d 100%);
+            background: linear-gradient(135deg, #8bc3c9 0%, #7aafb5 100%);
             color: white;
             position: relative;
             overflow: hidden;
@@ -473,18 +514,28 @@
         footer::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="coffee-beans" width="40" height="40" patternUnits="userSpaceOnUse"><ellipse cx="12" cy="12" rx="4" ry="7" fill="white" opacity="0.1" transform="rotate(25 12 12)"/><ellipse cx="32" cy="32" rx="4" ry="7" fill="white" opacity="0.1" transform="rotate(-20 32 32)"/><ellipse cx="8" cy="28" rx="3" ry="6" fill="white" opacity="0.08" transform="rotate(45 8 28)"/><ellipse cx="36" cy="15" rx="3" ry="6" fill="white" opacity="0.08" transform="rotate(-35 36 15)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23coffee-beans)"/></svg>');
-            animation: float 20s linear infinite;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="elegant-damask" width="100" height="100" patternUnits="userSpaceOnUse"><g opacity="0.08"><path d="M50,10 C55,15 60,20 50,30 C40,20 45,15 50,10 Z" fill="white"/><path d="M50,70 C55,75 60,80 50,90 C40,80 45,75 50,70 Z" fill="white"/><path d="M10,50 C15,45 20,40 30,50 C20,60 15,55 10,50 Z" fill="white"/><path d="M70,50 C75,45 80,40 90,50 C80,60 75,55 70,50 Z" fill="white"/><circle cx="25" cy="25" r="2" fill="white" opacity="0.6"/><circle cx="75" cy="75" r="2" fill="white" opacity="0.6"/><circle cx="75" cy="25" r="1.5" fill="white" opacity="0.4"/><circle cx="25" cy="75" r="1.5" fill="white" opacity="0.4"/><path d="M30,30 Q50,20 70,30 Q60,50 50,40 Q40,50 30,30" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/><path d="M30,70 Q50,80 70,70 Q60,50 50,60 Q40,50 30,70" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></g></pattern></defs><rect width="100%" height="100%" fill="url(%23elegant-damask)"/></svg>');
+            opacity: 0.2;
+            pointer-events: none;
         }
 
-        @keyframes float {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(0, 0, 0, 0.6) 100%);
+            pointer-events: none;
+            z-index: 1;
         }
+
+
 
         .footer-content {
             max-width: 400px;
@@ -496,7 +547,7 @@
             font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 2.5rem;
-            color: white;
+            color: black;
             position: relative;
             z-index: 2;
         }
@@ -580,14 +631,15 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #c8956d 0%, #e4c5a0 100%);
-            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(200, 149, 109, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
@@ -601,14 +653,22 @@
 
         .scroll-to-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(200, 149, 109, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .scroll-to-top svg {
             width: 24px;
             height: 24px;
-            stroke: white;
+            stroke: rgba(55, 65, 81, 0.8);
             stroke-width: 2;
+            transition: all 0.3s ease;
+        }
+
+        .scroll-to-top:hover svg {
+            stroke: rgba(55, 65, 81, 1);
+            transform: translateY(-1px);
         }
 
         /* Responsive Design */
@@ -690,7 +750,7 @@
                 <h2 class="section-title no-lines">About</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and bakery hopping. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
+                        <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and going to bakeries. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
                     </div>
                 </div>
             </div>
