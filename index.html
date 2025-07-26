@@ -136,6 +136,7 @@
         .profile-image:hover {
             transform: scale(1.05) rotate(2deg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border-color: #e4c5a0;
         }
 
         .hero h1 {
@@ -148,7 +149,7 @@
         }
 
         .name-divider {
-            width: 800px;
+            width: 600px;
             height: 2px;
             background: linear-gradient(135deg, #c8956d 0%, #b8885a 100%);
             margin: 0 auto 3rem;
@@ -247,6 +248,7 @@
             text-align: center;
             color: var(--text-dark);
             position: relative;
+            letter-spacing: 2px;
         }
 
         .section-title::before,
@@ -265,6 +267,11 @@
 
         .section-title::after {
             right: -80px;
+        }
+
+        .section-title.no-lines::before,
+        .section-title.no-lines::after {
+            display: none;
         }
 
         /* About Section */
@@ -562,6 +569,44 @@
             stroke: var(--text-dark);
         }
 
+        /* Scroll to top button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #c8956d 0%, #e4c5a0 100%);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(200, 149, 109, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(200, 149, 109, 0.4);
+        }
+
+        .scroll-to-top svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
@@ -592,7 +637,7 @@
             }
 
             .name-divider {
-                width: 600px;
+                width: 450px;
             }
         }
 
@@ -638,7 +683,7 @@
 
         <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title">About</h2>
+                <h2 class="section-title no-lines">About</h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and bakery hopping. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
@@ -711,6 +756,13 @@
         </div>
     </footer>
 
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 14l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
     <script>
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -729,6 +781,8 @@
         // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
+            const scrollToTop = document.querySelector('.scroll-to-top');
+            
             if (window.scrollY > 50) {
                 header.style.background = 'rgba(255, 255, 255, 0.98)';
                 header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
@@ -736,7 +790,22 @@
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
             }
+            
+            // Show/hide scroll to top button
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
         });
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
     </script>
 </body>
 </html>
