@@ -6,7 +6,7 @@
     <title>Mariel Gonzales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -15,26 +15,32 @@
         }
 
         :root {
-            --primary-color: #4fd1c7;
-            --secondary-color: #ffffff;
-            --accent-color: #ffd97d;
-            --accent-light: #ffe7a3;
-            --teal: #4fd1c7;
-            --teal-light: #81e6d9;
-            --gold: #ffd97d;
-            --gold-light: #ffe7a3;
-            --text-light: #718096;
-            --text-dark: #2d3748;
-            --border-color: #e2e8f0;
-            --hover-bg: #f7fafc;
+            --primary-color: #6bb6d6;
+            --secondary-color: #fefefe;
+            --accent-color: #8fc4d4;
+            --accent-light: #b8d7e2;
+            --light-blue: #6bb6d6;
+            --medium-blue: #4a9bb3;
+            --dark-blue: #2c7a8a;
+            --light-grey: #f8f9fa;
+            --medium-grey: #e9ecef;
+            --coffee-brown: #8b4513;
+            --light-brown: #d2b48c;
+            --medium-brown: #a0522d;
+            --text-light: #6b7280;
+            --text-dark: #374151;
+            --border-color: #e5e7eb;
+            --hover-bg: #f9fafb;
+            --cream: #ffffff;
         }
 
         body {
-            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
             color: var(--text-dark);
-            background: var(--secondary-color);
+            background: var(--cream);
             font-weight: 400;
+            font-size: 1.1rem;
         }
 
         .container {
@@ -52,7 +58,8 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
         }
 
         nav {
@@ -63,9 +70,11 @@
         }
 
         .logo {
-            font-size: 1.25rem;
-            font-weight: 600;
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text-dark);
+            font-style: italic;
         }
 
         .nav-links {
@@ -78,82 +87,230 @@
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 400;
-            transition: color 0.2s ease;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
             position: relative;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--medium-brown), var(--light-brown));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--coffee-brown);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
             padding: 8rem 0 4rem;
             text-align: center;
+            background: #ffffff;
         }
 
         .profile-image {
-            width: 180px;
-            height: 180px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 2rem;
+            margin: 0 auto 2.5rem;
             display: block;
-            border: 4px solid var(--gold);
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 217, 125, 0.3);
+            border: none;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            border-radius: 50%;
+            background: 
+                /* Main ring - thick and irregular */
+                radial-gradient(ellipse at 20% 30%, transparent 45%, var(--coffee-brown) 46%, var(--coffee-brown) 52%, transparent 53%),
+                radial-gradient(ellipse at 80% 20%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
+                radial-gradient(ellipse at 70% 80%, transparent 46%, var(--coffee-brown) 47%, var(--coffee-brown) 53%, transparent 54%),
+                radial-gradient(ellipse at 30% 70%, transparent 48%, var(--coffee-brown) 49%, var(--coffee-brown) 55%, transparent 56%),
+                radial-gradient(ellipse at 90% 60%, transparent 45%, var(--coffee-brown) 46%, var(--coffee-brown) 52%, transparent 53%),
+                radial-gradient(ellipse at 10% 90%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
+                /* Connecting the gaps */
+                radial-gradient(ellipse at 50% 10%, transparent 49%, var(--coffee-brown) 50%, var(--coffee-brown) 56%, transparent 57%),
+                radial-gradient(ellipse at 5% 50%, transparent 48%, var(--coffee-brown) 49%, var(--coffee-brown) 55%, transparent 56%),
+                radial-gradient(ellipse at 50% 90%, transparent 47%, var(--coffee-brown) 48%, var(--coffee-brown) 54%, transparent 55%),
+                radial-gradient(ellipse at 95% 40%, transparent 46%, var(--coffee-brown) 47%, var(--coffee-brown) 53%, transparent 54%);
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            /* Small drip outside the main ring */
+            top: -35px;
+            left: 50px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--coffee-brown);
+            opacity: 0.7;
+            z-index: -1;
         }
 
         .profile-image:hover {
-            transform: scale(1.05);
-            border-color: var(--gold-light);
-            box-shadow: 0 12px 35px rgba(255, 217, 125, 0.4);
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image:hover::before {
+            opacity: 0.9;
+        }
+
+        .profile-image:hover::after {
+            opacity: 0.8;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
             color: var(--text-dark);
+            position: relative;
         }
 
-        .hero-description {
-            font-size: 1rem;
-            color: var(--text-light);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .name-divider {
+            width: 200px;
+            height: 2px;
+            background: var(--medium-brown);
+            margin: 0 auto 3rem;
+            border-radius: 1px;
         }
 
         .cta-button {
             display: inline-block;
-            padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-light) 100%);
             color: var(--text-dark);
             text-decoration: none;
-            border-radius: 6px;
+            border-radius: 50px;
             font-weight: 500;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            border: 2px solid var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        /* Bubbling effect for Get in touch button */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+            animation: bubble 0.6s ease-out;
+        }
+
+        @keyframes bubble {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            50% {
+                width: 200px;
+                height: 200px;
+                opacity: 0.4;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
         }
 
         .cta-button:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(255, 217, 125, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(107, 182, 214, 0.4);
         }
 
         /* Sections */
         .section {
             padding: 4rem 0;
+            background: #ffffff;
         }
 
         .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            margin-bottom: 3rem;
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3.5rem;
             text-align: center;
             color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--medium-brown), var(--medium-blue));
+        }
+
+        .section-title::before {
+            left: -80px;
+        }
+
+        .section-title::after {
+            right: -80px;
         }
 
         /* About Section */
@@ -164,16 +321,30 @@
         }
 
         .about-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
+            font-size: 1.25rem;
+            line-height: 1.8;
             color: var(--text-light);
+            text-align: justify;
+            hyphens: auto;
         }
 
         /* Three Column Section */
         .three-column-section {
-            padding: 5rem 0;
-            background: var(--teal-light);
-            background: linear-gradient(135deg, rgba(129, 230, 217, 0.1) 0%, rgba(79, 209, 199, 0.1) 100%);
+            padding: 6rem 0;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .three-column-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f0f0f0" opacity="0.3"/><circle cx="75" cy="75" r="1" fill="%23f0f0f0" opacity="0.3"/><circle cx="50" cy="10" r="0.5" fill="%23f0f0f0" opacity="0.2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
         }
 
         .columns-grid {
@@ -185,20 +356,37 @@
         }
 
         .column-item {
-            background: white;
-            padding: 2.5rem 1.5rem;
-            border-radius: 12px;
+            background: var(--cream);
+            padding: 3rem 2rem;
+            border-radius: 20px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .column-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(107, 182, 214, 0.05), transparent);
+            transition: transform 0.6s;
+            transform: rotate(-45deg);
+        }
+
+        .column-item:hover::before {
+            transform: rotate(-45deg) translate(50%, 50%);
         }
 
         .column-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(79, 209, 199, 0.2);
-            border-color: var(--teal);
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--medium-blue);
         }
 
         .column-icon {
@@ -230,36 +418,72 @@
         }
 
         .column-item:hover .column-icon {
-            border-color: var(--teal);
+            border-color: var(--medium-blue);
             transform: scale(1.05);
         }
 
         .column-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
         }
 
         .column-link {
             display: inline-block;
-            color: var(--teal);
+            color: var(--medium-blue);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+
+        .column-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: linear-gradient(90deg, var(--medium-blue), var(--light-blue));
+            transition: width 0.3s ease;
+        }
+
+        .column-link:hover::after {
+            width: 100%;
         }
 
         .column-link:hover {
-            color: var(--gold);
-            text-decoration: underline;
+            color: var(--light-blue);
         }
 
         /* Footer */
         footer {
-            padding: 4rem 0;
+            padding: 5rem 0;
             text-align: center;
-            background: var(--teal);
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1f5f73 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
         .footer-content {
@@ -268,42 +492,70 @@
         }
 
         .contact-title {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
             color: white;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-icons {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 217, 125, 0.2);
+            width: 70px;
+            height: 70px;
+            background: rgba(107, 182, 214, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 217, 125, 0.3);
+            border: 3px solid rgba(107, 182, 214, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--light-blue);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .contact-icon:hover::before {
+            width: 100%;
+            height: 100%;
         }
 
         .contact-icon:hover {
-            background: var(--gold);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 217, 125, 0.4);
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(107, 182, 214, 0.4);
+            border-color: var(--light-blue);
         }
 
         .contact-icon svg {
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
         }
 
         .contact-icon svg path,
@@ -311,6 +563,7 @@
         .contact-icon svg rect,
         .contact-icon svg circle {
             stroke: white;
+            transition: stroke 0.3s ease;
         }
 
         .contact-icon:hover svg path,
@@ -327,21 +580,30 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
+            }
+
+            .section-title::before,
+            .section-title::after {
+                display: none;
             }
 
             .columns-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 2.5rem;
             }
 
             .profile-image {
-                width: 150px;
-                height: 150px;
+                width: 170px;
+                height: 170px;
             }
 
             .container {
                 padding: 0 1.5rem;
+            }
+
+            .name-divider {
+                width: 150px;
             }
         }
 
@@ -381,7 +643,7 @@
             <div class="container">
                 <img src="./profilepic1.jpg" alt="Mariel Gonzales" class="profile-image">
                 <h1>Mariel Gonzales</h1>
-                <p class="hero-description">Welcome to my space</p>
+                <div class="name-divider"></div>
                 <a href="#contact" class="cta-button">Get in touch</a>
             </div>
         </section>
@@ -391,7 +653,7 @@
                 <h2 class="section-title">About</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>I'm a PhD candidate at the University of California, Merced, in the Cognitive & Information Sciences department where I study music perception, illusion perception, and multisensory processing. I'm also a baker who loves experimenting in the kitchen and trying new desserts. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling my cat.</p>
+                        <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and bakery hopping. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
                     </div>
                 </div>
             </div>
@@ -441,7 +703,7 @@
                         </svg>
                     </a>
                 </div>
-                <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
+                <p style="margin-top: 2.5rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; position: relative; z-index: 2;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
             </div>
         </div>
     </footer>
