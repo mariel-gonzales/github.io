@@ -15,12 +15,14 @@
         }
 
         :root {
-            --primary-color: #2d3748;
+            --primary-color: #4fd1c7;
             --secondary-color: #ffffff;
-            --accent-color: #4299e1;
-            --accent-light: #63b3ed;
-            --periwinkle: #c5c5ff;
-            --periwinkle-light: #d9d9ff;
+            --accent-color: #ffd97d;
+            --accent-light: #ffe7a3;
+            --teal: #4fd1c7;
+            --teal-light: #81e6d9;
+            --gold: #ffd97d;
+            --gold-light: #ffe7a3;
             --text-light: #718096;
             --text-dark: #2d3748;
             --border-color: #e2e8f0;
@@ -81,7 +83,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--gold);
         }
 
         /* Hero Section */
@@ -97,15 +99,15 @@
             object-fit: cover;
             margin: 0 auto 2rem;
             display: block;
-            border: 4px solid var(--periwinkle);
+            border: 4px solid var(--gold);
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(197, 197, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(255, 217, 125, 0.3);
         }
 
         .profile-image:hover {
             transform: scale(1.05);
-            border-color: var(--periwinkle-light);
-            box-shadow: 0 12px 35px rgba(197, 197, 255, 0.4);
+            border-color: var(--gold-light);
+            box-shadow: 0 12px 35px rgba(255, 217, 125, 0.4);
         }
 
         .hero h1 {
@@ -127,7 +129,7 @@
         .cta-button {
             display: inline-block;
             padding: 0.75rem 2rem;
-            background: linear-gradient(135deg, var(--periwinkle) 0%, var(--periwinkle-light) 100%);
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
             color: var(--text-dark);
             text-decoration: none;
             border-radius: 6px;
@@ -138,7 +140,7 @@
 
         .cta-button:hover {
             transform: translateY(-1px);
-            box-shadow: 0 8px 20px rgba(197, 197, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 217, 125, 0.4);
         }
 
         /* Sections */
@@ -170,7 +172,8 @@
         /* Three Column Section */
         .three-column-section {
             padding: 5rem 0;
-            background: var(--periwinkle-light);
+            background: var(--teal-light);
+            background: linear-gradient(135deg, rgba(129, 230, 217, 0.1) 0%, rgba(79, 209, 199, 0.1) 100%);
         }
 
         .columns-grid {
@@ -194,8 +197,8 @@
 
         .column-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(66, 153, 225, 0.15);
-            border-color: var(--accent-color);
+            box-shadow: 0 10px 25px rgba(79, 209, 199, 0.2);
+            border-color: var(--teal);
         }
 
         .column-icon {
@@ -227,7 +230,7 @@
         }
 
         .column-item:hover .column-icon {
-            border-color: var(--accent-color);
+            border-color: var(--teal);
             transform: scale(1.05);
         }
 
@@ -240,14 +243,14 @@
 
         .column-link {
             display: inline-block;
-            color: var(--accent-color);
+            color: var(--teal);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s ease;
         }
 
         .column-link:hover {
-            color: var(--accent-light);
+            color: var(--gold);
             text-decoration: underline;
         }
 
@@ -255,8 +258,8 @@
         footer {
             padding: 4rem 0;
             text-align: center;
-            background: var(--periwinkle);
-            color: var(--text-dark);
+            background: var(--teal);
+            color: white;
         }
 
         .footer-content {
@@ -268,7 +271,7 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 2rem;
-            color: var(--text-dark);
+            color: white;
         }
 
         .contact-icons {
@@ -281,7 +284,7 @@
         .contact-icon {
             width: 60px;
             height: 60px;
-            background: rgba(45, 55, 72, 0.2);
+            background: rgba(255, 217, 125, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -289,13 +292,13 @@
             transition: all 0.3s ease;
             text-decoration: none;
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(45, 55, 72, 0.3);
+            border: 2px solid rgba(255, 217, 125, 0.3);
         }
 
         .contact-icon:hover {
-            background: rgba(45, 55, 72, 0.3);
+            background: var(--gold);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(45, 55, 72, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 217, 125, 0.4);
         }
 
         .contact-icon svg {
@@ -307,6 +310,13 @@
         .contact-icon svg polyline,
         .contact-icon svg rect,
         .contact-icon svg circle {
+            stroke: white;
+        }
+
+        .contact-icon:hover svg path,
+        .contact-icon:hover svg polyline,
+        .contact-icon:hover svg rect,
+        .contact-icon:hover svg circle {
             stroke: var(--text-dark);
         }
 
@@ -369,7 +379,7 @@
     <main>
         <section class="hero">
             <div class="container">
-                <img src="./profilepic5.jpg" alt="Mariel Gonzales" class="profile-image">
+                <img src="./profilepic1.jpg" alt="Mariel Gonzales" class="profile-image">
                 <h1>Mariel Gonzales</h1>
                 <p class="hero-description">Welcome to my space</p>
                 <a href="#contact" class="cta-button">Get in touch</a>
@@ -431,7 +441,7 @@
                         </svg>
                     </a>
                 </div>
-                <p style="margin-top: 2rem; color: rgba(45, 55, 72, 0.8); font-size: 0.9rem;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
+                <p style="margin-top: 2rem; color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
             </div>
         </div>
     </footer>
