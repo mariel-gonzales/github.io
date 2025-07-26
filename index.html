@@ -1,390 +1,801 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mariel Gonzales</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400&family=Georgia:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-    /* Root and Base */
-    :root {
-      --primary-color: #6bb6d6;
-      --secondary-color: #fefefe;
-      --accent-color: #8fc4d4;
-      --accent-light: #b8d7e2;
-      --light-blue: #6bb6d6;
-      --medium-blue: #4a9bb3;
-      --dark-blue: #2c7a8a;
-      --light-grey: #f8f9fa;
-      --medium-grey: #e9ecef;
-      --coffee-brown: #8b4513;
-      --light-brown: #d2b48c;
-      --medium-brown: #a0522d;
-      --text-light: #6b7280;
-      --text-dark: #374151;
-      --border-color: #e5e7eb;
-      --hover-bg: #f9fafb;
-      --cream: #ffffff;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariel Gonzales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman:ital,wght@0,400;0,700;1,400&family=Georgia:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        :root {
+            --primary-color: #6bb6d6;
+            --secondary-color: #fefefe;
+            --accent-color: #8fc4d4;
+            --accent-light: #b8d7e2;
+            --light-blue: #6bb6d6;
+            --medium-blue: #4a9bb3;
+            --dark-blue: #2c7a8a;
+            --light-grey: #f8f9fa;
+            --medium-grey: #e9ecef;
+            --coffee-brown: #8b4513;
+            --light-brown: #d2b48c;
+            --medium-brown: #a0522d;
+            --text-light: #6b7280;
+            --text-dark: #374151;
+            --border-color: #e5e7eb;
+            --hover-bg: #f9fafb;
+            --cream: #ffffff;
+        }
 
-    body {
-      font-family: 'Georgia', 'Times New Roman', serif;
-      line-height: 1.7;
-      color: var(--text-dark);
-      background: var(--cream);
-      font-size: 1.1rem;
-    }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--cream);
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    /* Header */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 2px solid var(--border-color);
-    }
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 2px solid var(--border-color);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
 
-    nav {
-      display: flex;
-      justify-content: flex-end;
-      padding: 1rem 2rem;
-    }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
 
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
+        .logo {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-style: italic;
+        }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-dark);
-      font-size: 1.05rem;
-      position: relative;
-      transition: 0.3s;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 50%;
-      background: linear-gradient(90deg, var(--medium-brown), var(--light-brown));
-      transform: translateX(-50%);
-      transition: 0.3s;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 400;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
 
-    .nav-links a:hover {
-      color: var(--coffee-brown);
-    }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(90deg, var(--medium-brown), var(--light-brown));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+        .nav-links a:hover {
+            color: var(--coffee-brown);
+        }
 
-    /* Hero */
-    .hero {
-      padding: 8rem 0 4rem;
-      text-align: center;
-    }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
 
-    .profile-image {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 2.5rem;
-      display: block;
-      border: 6px solid var(--coffee-brown);
-      border-left-width: 2px;
-      border-right-width: 8px;
-      transition: 0.4s;
-      position: relative;
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
+        /* Hero Section */
+        .hero {
+            padding: 8rem 0 4rem;
+            text-align: center;
+            background: #ffffff;
+        }
 
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 2rem;
-    }
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2.5rem;
+            display: block;
+            border: none;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
 
-    .name-divider {
-      width: 200px;
-      height: 2px;
-      background: var(--medium-brown);
-      margin: 0 auto 3rem;
-      border-radius: 1px;
-    }
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 50%;
+            background: 
+                /* Main coffee ring - circular with irregular edges */
+                conic-gradient(
+                    from 0deg,
+                    transparent 0deg,
+                    var(--coffee-brown) 8deg,
+                    var(--coffee-brown) 15deg,
+                    transparent 18deg,
+                    transparent 25deg,
+                    var(--coffee-brown) 30deg,
+                    var(--coffee-brown) 42deg,
+                    transparent 45deg,
+                    transparent 55deg,
+                    var(--coffee-brown) 60deg,
+                    var(--coffee-brown) 70deg,
+                    transparent 73deg,
+                    transparent 85deg,
+                    var(--coffee-brown) 90deg,
+                    var(--coffee-brown) 105deg,
+                    transparent 108deg,
+                    transparent 120deg,
+                    var(--coffee-brown) 125deg,
+                    var(--coffee-brown) 140deg,
+                    transparent 143deg,
+                    transparent 155deg,
+                    var(--coffee-brown) 160deg,
+                    var(--coffee-brown) 175deg,
+                    transparent 178deg,
+                    transparent 190deg,
+                    var(--coffee-brown) 195deg,
+                    var(--coffee-brown) 210deg,
+                    transparent 213deg,
+                    transparent 225deg,
+                    var(--coffee-brown) 230deg,
+                    var(--coffee-brown) 245deg,
+                    transparent 248deg,
+                    transparent 260deg,
+                    var(--coffee-brown) 265deg,
+                    var(--coffee-brown) 280deg,
+                    transparent 283deg,
+                    transparent 295deg,
+                    var(--coffee-brown) 300deg,
+                    var(--coffee-brown) 315deg,
+                    transparent 318deg,
+                    transparent 330deg,
+                    var(--coffee-brown) 335deg,
+                    var(--coffee-brown) 350deg,
+                    transparent 353deg,
+                    transparent 360deg
+                ),
+                /* Inner mask to create ring effect */
+                radial-gradient(circle, transparent 85%, var(--coffee-brown) 86%, var(--coffee-brown) 100%);
+            mask: radial-gradient(circle, transparent 75%, black 76%, black 90%, transparent 91%);
+            z-index: -1;
+            opacity: 0.8;
+        }
 
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(135deg, #ccecf6 0%, #e6f5fb 100%);
-      color: var(--text-dark);
-      text-decoration: none;
-      border-radius: 50px;
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      text-transform: lowercase;
-      border: 2px solid #ccecf6;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            /* Small coffee drips */
+            top: -25px;
+            left: 60px;
+            width: 8px;
+            height: 15px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            background: var(--coffee-brown);
+            opacity: 0.6;
+            z-index: -1;
+            box-shadow: 
+                -80px 30px 0 -2px var(--coffee-brown),
+                40px 90px 0 -3px var(--coffee-brown),
+                -60px -10px 0 -1px var(--coffee-brown);
+        }
 
-    .cta-button::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      transition: left 0.5s;
-    }
+        .profile-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
 
-    .cta-button:hover::before {
-      left: 100%;
-    }
+        .profile-image:hover::before {
+            opacity: 0.9;
+        }
 
-    .cta-button::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: all 0.6s ease;
-    }
+        .profile-image:hover::after {
+            opacity: 0.8;
+        }
 
-    .cta-button:hover::after {
-      width: 300px;
-      height: 300px;
-      opacity: 1;
-      animation: bubble 0.6s ease-out;
-    }
+        .hero h1 {
+            font-family: 'Georgia', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+        }
 
-    @keyframes bubble {
-      0% { width: 0; height: 0; opacity: 0.8; }
-      50% { width: 200px; height: 200px; opacity: 0.4; }
-      100% { width: 300px; height: 300px; opacity: 0; }
-    }
+        .name-divider {
+            width: 200px;
+            height: 2px;
+            background: var(--medium-brown);
+            margin: 0 auto 3rem;
+            border-radius: 1px;
+        }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(107, 182, 214, 0.4);
-    }
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--accent-light) 100%);
+            color: var(--text-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+            border: 2px solid var(--light-blue);
+            position: relative;
+            overflow: hidden;
+        }
 
-    /* Section titles */
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 3.5rem;
-      text-align: center;
-      position: relative;
-    }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
 
-    .section-title::before,
-    .section-title::after {
-      display: none;
-    }
+        /* Bubbling effect for Get in touch button */
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
 
-    /* About */
-    .about-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
+        .cta-button:hover::before {
+            left: 100%;
+        }
 
-    .about-text {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: var(--text-light);
-      text-align: justify;
-    }
+        .cta-button:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+            animation: bubble 0.6s ease-out;
+        }
 
-    /* Footer */
-    footer {
-      padding: 5rem 0;
-      text-align: center;
-      background: linear-gradient(135deg, #0f3d4a 0%, #0a2c35 100%);
-      color: white;
-      position: relative;
-    }
+        @keyframes bubble {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.8;
+            }
+            50% {
+                width: 200px;
+                height: 200px;
+                opacity: 0.4;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
 
-    footer::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
-      animation: float 20s linear infinite;
-    }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(107, 182, 214, 0.4);
+        }
 
-    @keyframes float {
-      0% { transform: translate(-50%, -50%) rotate(0deg); }
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
+        /* Sections */
+        .section {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
 
-    .footer-content {
-      max-width: 400px;
-      margin: 0 auto;
-    }
+        .section-title {
+            font-family: 'Georgia', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3.5rem;
+            text-align: center;
+            color: var(--text-dark);
+            position: relative;
+        }
 
-    .contact-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 2;
-    }
+        .section-title::before,
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--medium-brown), var(--medium-blue));
+        }
 
-    .contact-icons {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 2;
-    }
+        .section-title::before {
+            left: -80px;
+        }
 
-    .contact-icon {
-      width: 70px;
-      height: 70px;
-      background: rgba(107, 182, 214, 0.15);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s ease;
-      text-decoration: none;
-      backdrop-filter: blur(10px);
-      border: 3px solid rgba(107, 182, 214, 0.3);
-      position: relative;
-    }
+        .section-title::after {
+            right: -80px;
+        }
 
-    .contact-icon svg {
-      width: 35px;
-      height: 35px;
-      z-index: 3;
-      stroke: white;
-    }
+        /* About Section */
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-    .contact-icon:hover {
-      transform: translateY(-5px) rotate(10deg);
-      box-shadow: 0 10px 30px rgba(107, 182, 214, 0.4);
-      border-color: var(--light-blue);
-    }
+        .about-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--text-light);
+            text-align: justify;
+            hyphens: auto;
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
+        /* Three Column Section */
+        .three-column-section {
+            padding: 6rem 0;
+            background: #ffffff;
+            position: relative;
+        }
 
-      .hero h1 {
-        font-size: 2.8rem;
-      }
+        .three-column-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f0f0f0" opacity="0.3"/><circle cx="75" cy="75" r="1" fill="%23f0f0f0" opacity="0.3"/><circle cx="50" cy="10" r="0.5" fill="%23f0f0f0" opacity="0.2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
+        }
 
-      .columns-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
+        .columns-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
 
-      .profile-image {
-        width: 170px;
-        height: 170px;
-      }
+        .column-item {
+            background: var(--cream);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        }
 
-      .name-divider {
-        width: 150px;
-      }
-    }
-  </style>
+        .column-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(107, 182, 214, 0.05), transparent);
+            transition: transform 0.6s;
+            transform: rotate(-45deg);
+        }
+
+        .column-item:hover::before {
+            transform: rotate(-45deg) translate(50%, 50%);
+        }
+
+        .column-item:hover {
+            transform: translateY(-8px) rotate(1deg);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            border-color: var(--medium-blue);
+        }
+
+        .column-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .research-icon {
+            background-image: url('./pubimage.jpg');
+        }
+
+        .cv-icon {
+            background-image: url('./cvimage.jpg');
+        }
+
+        .baking-icon {
+            background-image: url('./bakeimage.jpg');
+        }
+
+        .column-item:hover .column-icon {
+            border-color: var(--medium-blue);
+            transform: scale(1.05);
+        }
+
+        .column-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .column-link {
+            display: inline-block;
+            color: var(--medium-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+
+        .column-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -3px;
+            left: 0;
+            background: linear-gradient(90deg, var(--medium-blue), var(--light-blue));
+            transition: width 0.3s ease;
+        }
+
+        .column-link:hover::after {
+            width: 100%;
+        }
+
+        .column-link:hover {
+            color: var(--light-blue);
+        }
+
+        /* Footer */
+        footer {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1f5f73 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23dots)"/></svg>');
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .footer-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(107, 182, 214, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(107, 182, 214, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--light-blue);
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .contact-icon:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .contact-icon:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(107, 182, 214, 0.4);
+            border-color: var(--light-blue);
+        }
+
+        .contact-icon svg {
+            width: 35px;
+            height: 35px;
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon svg path,
+        .contact-icon svg polyline,
+        .contact-icon svg rect,
+        .contact-icon svg circle {
+            stroke: white;
+            transition: stroke 0.3s ease;
+        }
+
+        .contact-icon:hover svg path,
+        .contact-icon:hover svg polyline,
+        .contact-icon:hover svg rect,
+        .contact-icon:hover svg circle {
+            stroke: var(--text-dark);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title::before,
+            .section-title::after {
+                display: none;
+            }
+
+            .columns-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .profile-image {
+                width: 170px;
+                height: 170px;
+            }
+
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            .name-divider {
+                width: 150px;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#sections">Work</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#sections">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <img src="./profilepic1.jpg" alt="Mariel Gonzales" class="profile-image"/>
-        <h1>Mariel Gonzales</h1>
-        <div class="name-divider"></div>
-        <a href="#contact" class="cta-button">Get in touch</a>
-      </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <img src="./profilepic1.jpg" alt="Mariel Gonzales" class="profile-image">
+                <h1>Mariel Gonzales</h1>
+                <div class="name-divider"></div>
+                <a href="#contact" class="cta-button">Get in touch</a>
+            </div>
+        </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">About</h2>
-        <div class="about-content">
-          <div class="about-text">
-            <p>
-              I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and going bakery-hopping. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.
-            </p>
-          </div>
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and bakery hopping. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sections" class="three-column-section">
+            <div class="container">
+                <div class="columns-grid">
+                    <div class="column-item fade-in">
+                        <div class="column-icon research-icon"></div>
+                        <h3 class="column-title">Publications</h3>
+                        <a href="https://www.researchgate.net/profile/Mariel-Gonzales" class="column-link" target="_blank" rel="noopener noreferrer">My ResearchGate Link</a>
+                    </div>
+                    <div class="column-item fade-in">
+                        <div class="column-icon cv-icon"></div>
+                        <h3 class="column-title">My CV</h3>
+                        <a href="./CV.pdf" class="column-link" target="_blank" rel="noopener noreferrer">View my CV</a>
+                        <br><br>
+                        <a href="./CV.pdf" class="column-link" download="Mariel_Gonzales_CV.pdf">Download my CV</a>
+                    </div>
+                    <div class="column-item fade-in">
+                        <div class="column-icon baking-icon"></div>
+                        <h3 class="column-title">My Baking Blog</h3>
+                        <a href="./baking-blog.html" class="column-link">Visit My Blog</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <h3 class="contact-title">Connect with me!</h3>
+                <div class="contact-icons">
+                    <a href="mailto:marielgmgonzales@gmail.com" class="contact-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="22,6 12,13 2,6" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mariel-gonzales-18a823337/" class="contact-icon" target="_blank" rel="noopener noreferrer">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="2" y="9" width="4" height="12" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="4" cy="4" r="2" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+                <p style="margin-top: 2.5rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem; position: relative; z-index: 2;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
+            </div>
         </div>
-      </div>
-    </section>
-  </main>
+    </footer>
 
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-content">
-        <h3 class="contact-title">Connect with me!</h3>
-        <div class="contact-icons">
-          <a href="mailto:marielgmgonzales@gmail.com" class="contact-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <polyline points="22,6 12,13 2,6" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/in/mariel-gonzales-18a823337/" class="contact-icon" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="2" y="9" width="4" height="12" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="4" cy="4" r="2" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-        <p style="margin-top: 2.5rem; color: rgba(255, 255, 255, 0.8); font-size: 0.95rem;">&copy; 2025 Mariel Gonzales. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
