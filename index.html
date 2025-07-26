@@ -413,62 +413,6 @@
             background: linear-gradient(135deg, transparent 0%, rgba(93, 44, 22, 0.03) 40%, rgba(93, 44, 22, 0.08) 100%);
         }
 
-        /* Baking section - flour dust/sparkle effect */
-        .column-item:nth-child(3)::after {
-            content: '✨ ⭐ ✦ ✧ ✨ ⭐ ✦ ✧ ✨ ⭐ ✦ ✧';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 16px;
-            color: rgba(255, 215, 0, 0.6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            pointer-events: none;
-            z-index: 1;
-            animation: flourDust 4s infinite ease-in-out;
-        }
-
-        .column-item:nth-child(3):hover::after {
-            opacity: 1;
-        }
-
-        .column-item:nth-child(3)::before {
-            background: radial-gradient(circle at center, 
-                rgba(255, 248, 220, 0.4) 0%, 
-                rgba(255, 228, 196, 0.2) 40%, 
-                rgba(222, 184, 135, 0.1) 100%);
-        }
-
-        @keyframes flourDust {
-            0% { 
-                transform: scale(0.8) rotate(0deg);
-                opacity: 0.4;
-            }
-            25% { 
-                transform: scale(1.1) rotate(5deg);
-                opacity: 0.8;
-            }
-            50% { 
-                transform: scale(0.9) rotate(-3deg);
-                opacity: 0.6;
-            }
-            75% { 
-                transform: scale(1.05) rotate(3deg);
-                opacity: 0.9;
-            }
-            100% { 
-                transform: scale(0.8) rotate(0deg);
-                opacity: 0.4;
-            }
-        }
-
         .column-item:hover {
             transform: translateY(-8px) rotate(1deg);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -479,7 +423,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 1.5rem;
-            border-radius: 0; /* Changed from 12px to 0 for sharp corners */
+            border-radius: 0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -489,7 +433,6 @@
             border: 2px solid var(--border-color);
             transition: all 0.3s ease;
             overflow: hidden;
-            /* Added clip-path for pointy effect */
             clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
         }
 
@@ -569,6 +512,7 @@
             margin-bottom: 0;
             position: relative;
             z-index: 2;
+            display: inline-block;
         }
 
         .column-title-link::after {
@@ -937,79 +881,89 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#sections">Work</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#cv">CV</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <img src="./profilepic1.jpg" alt="Mariel Gonzales" class="profile-image">
-                <h1>Mariel Gonzales</h1>
-                <div class="name-divider"></div>
-                <a href="#contact" class="cta-button">Get in touch</a>
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <img src="https://via.placeholder.com/200" alt="Mariel Gonzales" class="profile-image">
+            <h1>Mariel Gonzales</h1>
+            <div class="name-divider"></div>
+            <a href="#contact" class="cta-button">get in touch</a>
+        </div>
+    </section>
 
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title no-lines">About</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <p>I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and going to bakeries. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.</p>
-                    </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p class="about-text">
+                    I study music perception, illusion perception, and multisensory processing at UC Merced. I'm also a baker who loves experimenting in the kitchen and going to bakeries. When I'm not doing those things, I'm usually watching a movie, playing the piano (trying to), or cuddling with my cat.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Column Section -->
+    <section class="three-column-section">
+        <div class="container">
+            <div class="columns-grid">
+                <div class="column-item fade-in">
+                    <div class="column-icon research-icon"></div>
+                    <h3 class="column-title">Publications</h3>
+                    <a href="https://www.researchgate.net/profile/Mariel-Gonzales" class="column-link">
+                        ResearchGate
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </a>
                 </div>
-            </div>
-        </section>
 
-        <section id="sections" class="three-column-section">
-            <div class="container">
-                <div class="columns-grid">
-                    <div class="column-item fade-in">
-                        <div class="column-icon research-icon"></div>
-                        <h3 class="column-title">Publications</h3>
-                        <a href="https://www.researchgate.net/profile/Mariel-Gonzales" class="column-link" target="_blank" rel="noopener noreferrer">My ResearchGate</a>
-                    </div>
-                    <div class="column-item fade-in">
-                        <div class="column-icon cv-icon"></div>
-                        <h3 class="column-title">Curriculum Vitae</h3>
-                        <div class="cv-links">
-                            <a href="./CV.pdf" class="column-link" target="_blank" rel="noopener noreferrer">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                View
-                            </a>
-                            <a href="./CV.pdf" class="column-link" download="Mariel_Gonzales_CV.pdf">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <polyline points="7,10 12,15 17,10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <line x1="12" y1="15" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                Download
-                            </a>
-                        </div>
-                    </div>
-                    <div class="column-item fade-in">
-                        <div class="column-icon baking-icon"></div>
-                        <a href="./baking-blog.html" class="column-link column-title-link">
-                            <h3 class="column-title">Visit My Baking Blog</h3>
+                <div class="column-item fade-in">
+                    <div class="column-icon cv-icon"></div>
+                    <h3 class="column-title">Curriculum Vitae</h3>
+                    <div class="cv-links">
+                        <a href="#cv" class="column-link">
+                            View
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="column-link">
+                            Download PDF
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
 
+                <div class="column-item fade-in">
+                    <div class="column-icon baking-icon"></div>
+                    <a href="#baking" class="column-title-link">
+                        <h3 class="column-title">Visit My Baking Blog</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer id="contact">
-        <!-- Animated bubbles -->
         <div class="bubbles">
             <div class="bubble"></div>
             <div class="bubble"></div>
@@ -1022,36 +976,34 @@
             <div class="bubble"></div>
             <div class="bubble"></div>
         </div>
-        
         <div class="container">
             <div class="footer-content">
-                <h3 class="contact-title">Connect with me!</h3>
+                <h2 class="contact-title">Let's Connect</h2>
                 <div class="contact-icons">
-                    <a href="mailto:marielgmgonzales@gmail.com" class="contact-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="22,6 12,13 2,6" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <a href="mailto:mariel@example.com" class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
                         </svg>
                     </a>
-                    <a href="https://www.linkedin.com/in/mariel-gonzales-18a823337/" class="contact-icon" target="_blank" rel="noopener noreferrer">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <rect x="2" y="9" width="4" height="12" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="4" cy="4" r="2" stroke="#2d3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <a href="#" class="contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
                         </svg>
                     </a>
                 </div>
-                <p style="margin-top: 2.5rem; color: rgba(45, 55, 72, 0.7); font-size: 0.95rem; position: relative; z-index: 2;"></p>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to top button -->
-    <button class="scroll-to-top" onclick="scrollToTop()">
-        <svg viewBox="0 0 24 24" fill="none">
-            <path d="M7 14l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <div class="scroll-to-top" onclick="scrollToTop()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 15-6-6-6 6"/>
         </svg>
-    </button>
+    </div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -1068,34 +1020,42 @@
             });
         });
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            const scrollToTop = document.querySelector('.scroll-to-top');
-            
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
-            }
-            
-            // Show/hide scroll to top button
-            if (window.scrollY > 300) {
-                scrollToTop.classList.add('visible');
-            } else {
-                scrollToTop.classList.remove('visible');
-            }
-        });
-
-        // Scroll to top function
+        // Scroll to top functionality
         function scrollToTop() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
     </script>
 </body>
 </html>
