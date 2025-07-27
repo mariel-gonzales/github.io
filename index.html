@@ -128,11 +128,11 @@
             object-fit: cover;
             margin: 0 auto 2.5rem;
             display: block;
-            border: 1px solid #c8956d;
-            border-top-width: 3px;
-            border-bottom-width: 1px;
-            border-left-width: 2px;
-            border-right-width: 1px;
+            border: 6px solid #986819;
+            border-top-width: 8px;
+            border-bottom-width: 4px;
+            border-left-width: 7px;
+            border-right-width: 5px;
             transition: all 0.4s ease;
             position: relative;
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
@@ -141,7 +141,7 @@
         .profile-image:hover {
             transform: scale(1.05) rotate(2deg);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-            border-color: #e4c5a0;
+            border-color: #A87520;
         }
 
         .hero h1 {
@@ -156,7 +156,7 @@
         .name-divider {
             width: 600px;
             height: 3px;
-            background: linear-gradient(135deg, #d4c2a0 0%, #c9b693 100%);
+            background: linear-gradient(135deg, #986e28 0%, #986e28 100%);
             margin: 0 auto 3rem;
             border-radius: 0;
             margin-top: 1rem;
@@ -175,7 +175,7 @@
             font-size: 1rem;
             letter-spacing: 1px;
             text-transform: lowercase;
-            border: 2px solid #e8dcc0;
+            border: 2px solid #b78b46;
             position: relative;
             overflow: hidden;
         }
@@ -576,7 +576,7 @@
 
         /* Footer with bubbling animation */
         footer {
-            padding: 5rem 0;
+            padding: 6rem 0;
             text-align: center;
             background: linear-gradient(135deg, #e8f1f5 0%, #d1dde4 20%, #b8c8d1 60%, #95a9b3 100%);
             color: white;
@@ -719,7 +719,7 @@
         }
 
         .footer-content {
-            max-width: 400px;
+            max-width: 500px;
             margin: 0 auto;
             position: relative;
             z-index: 2;
@@ -755,7 +755,7 @@
             transition: all 0.4s ease;
             text-decoration: none;
             backdrop-filter: blur(10px);
-            border: 3px solid rgba(93, 44, 22, 0.3);
+            border: 3px solid #b78b46;
             position: relative;
             overflow: hidden;
         }
@@ -806,6 +806,83 @@
         .contact-icon:hover svg circle {
             stroke: var(--text-dark);
         }
+
+        /* Letterboxd section within footer */
+        .letterboxd-title {
+            font-family: 'Georgia', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 3.5rem 0 1.5rem;
+            color: #2d3748;
+            position: relative;
+            z-index: 2;
+        }
+
+        .letterboxd-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(93, 44, 22, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            border: 3px solid #b78b46;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .letterboxd-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: #d1dde4;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .letterboxd-icon:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .letterboxd-icon:hover {
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(93, 44, 22, 0.4);
+            border-color: #d1dde4;
+        }
+
+        .letterboxd-icon svg {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            z-index: 3;
+            transition: all 0.3s ease;
+        }
+
+        .letterboxd-icon svg path,
+        .letterboxd-icon svg circle {
+            stroke: #4a5568;
+            transition: stroke 0.3s ease;
+        }
+
+        .letterboxd-icon:hover svg path,
+        .letterboxd-icon:hover svg circle {
+            stroke: var(--text-dark);
+        }
+
+        .letterboxd-icon:hover svg {
+            transform: scale(1.1);
+        }
+
+
 
         /* Scroll to top button */
         .scroll-to-top {
@@ -885,6 +962,10 @@
 
             .name-divider {
                 width: 450px;
+            }
+
+            .contact-icons {
+                gap: 2rem;
             }
         }
 
@@ -1025,6 +1106,15 @@
                         </svg>
                     </a>
                 </div>
+                <h2 class="letterboxd-title">add me on Letterboxd</h2>
+                <a href="https://letterboxd.com/marieldisgrace/" target="_blank" class="letterboxd-icon">
+                    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="120" cy="250" r="70" fill="none" stroke="currentColor" stroke-width="50"/>
+                        <circle cx="250" cy="250" r="70" fill="none" stroke="currentColor" stroke-width="50"/>
+                        <circle cx="380" cy="250" r="70" fill="none" stroke="currentColor" stroke-width="50"/>
+                        <path d="M 185 250 A 70 70 0 0 1 315 250 A 70 70 0 0 1 185 250 Z" fill="currentColor"/>
+                    </svg>
+                </a>
             </div>
         </div>
     </footer>
